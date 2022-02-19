@@ -20,9 +20,9 @@ client.on("ready", () => {
   console.log(`ログイン: ${client.user.tag}`);
 });
 
-client.on("message", (message) => {
-  if (message.mentions.users.has(client.user.id)) {
-    message.reply("呼びましたか？");
+client.on('interactionCreate', async interaction => {
+  if (interaction.mentions.users.has(client.user.id)) {
+    interaction.reply("呼びましたか？");
     return;
   }
 });
