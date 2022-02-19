@@ -8,8 +8,8 @@ http
   .listen(3000);
 
 // main
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const { Client, Intents } = require('discord.js');
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.MESSAGE_CONTENT] });
 
 if (process.env.DISCORD_BOT_TOKEN == undefined) {
   console.error("TOKENが設定されていません。");
